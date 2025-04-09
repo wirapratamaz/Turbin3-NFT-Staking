@@ -6,7 +6,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 // Read keypair from file
-const loadKeypair = (filePath: string): Keypair => {
+const loadKeypair = (filePath) => {
   const keypairData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
   return Keypair.fromSecretKey(new Uint8Array(keypairData));
 };
@@ -53,7 +53,7 @@ async function main() {
   console.log(`Program ID: ${programId.toString()}`);
 
   // Initialize program
-  const program = new Program<NftStaking>(IDL, programId, provider);
+  const program = new Program(IDL, programId, provider);
 
   try {
     // Initialize config
