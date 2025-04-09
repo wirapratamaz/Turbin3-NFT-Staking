@@ -10,7 +10,11 @@
     "@coral-xyz/anchor": "^0.31.0",
     "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
     "@solana/spl-token": "^0.4.13",
-    "@solana/web3.js": "^1.98.0"
+    "@solana/web3.js": "^1.98.0",
+    "@types/chai": "^5.2.1",
+    "@types/mocha": "^10.0.10",
+    "chai": "^5.2.0",
+    "mocha": "^11.1.0"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.6",
