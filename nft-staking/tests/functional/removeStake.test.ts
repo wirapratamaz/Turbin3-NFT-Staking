@@ -1,7 +1,6 @@
 import { BankrunProvider } from "anchor-bankrun";
 import { beforeEach, describe, expect, test } from "bun:test";
 import { ProgramTestContext } from "solana-bankrun";
-import { NftStaking } from "../../target/types/nft_staking";
 import { BN, Program } from "@coral-xyz/anchor";
 import { getBankrunSetup } from "../setup";
 import {
@@ -18,6 +17,7 @@ import {
 } from "../pda";
 import { getStakeAcc, getUserAcc } from "../accounts";
 import { mintAddress, collectionAddress } from "../constants";
+import { NftStaking } from "../types";
 
 describe("removeStake", () => {
   let { context, provider, program } = {} as {
@@ -87,10 +87,8 @@ describe("removeStake", () => {
       .rpc();
     
     // Advance clock to get past freeze period
-    await context.setProgramAccount(context.banksClient.programId, {
-      slot: 100,
-      timestamp: Date.now() / 1000 + 100, // Add 100 seconds
-    });
+    // Instead of setting program account, we'll use BanksClient's warp method
+    await context.banksClient.warp(100); // Advance by 100 slots
   });
 
   test("removes an NFT from stake", async () => {
