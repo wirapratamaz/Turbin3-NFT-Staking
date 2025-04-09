@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["mocha", "chai", "node"],
+    "types": ["bun"],
     "typeRoots": ["./node_modules/@types"],
     "lib": ["ESNext"],
     "module": "ESNext",
@@ -8,11 +8,5 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "outDir": "dist",
-    "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "sourceMap": true
-  },
-  "include": ["tests/**/*"],
-  "exclude": ["node_modules"]
-} 
+  }
+}
